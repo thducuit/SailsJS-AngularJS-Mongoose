@@ -1,0 +1,1 @@
+mongoimport -u dbadmin -p dbpasswd -d my-app-dev -c songs  --file songs.json --jsonArray

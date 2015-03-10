@@ -1,0 +1,28 @@
+<div class="music-manager">
+  <div ng-controller="LayoutCtrl">
+    <md-toolbar layout="row">
+      <md-button class="menu" hide-gt-sm ng-click="layoutObj.toggleList()" aria-label="Show User List">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+      <h1>{{layoutObj.appTitle}}</h1>
+    </md-toolbar>
+
+    <div flex layout="row">
+
+      <md-sidenav md-is-locked-open="$media('gt-sm')" class="md-whiteframe-z2" md-component-id="left">
+        <md-list>
+          <md-item ng-repeat="sideBar in layoutObj.sideBarList">
+            <md-button ng-class="{'selected' : sideBar.id === selectedSideBar.id }" ng-click="layoutObj.onSelectedSidebar(sideBar)">
+              <md-icon md-svg-icon="{{sideBar.icon}}" class="avatar"></md-icon>
+              {{sideBar.title}}
+            </md-button>
+          </md-item>
+        </md-list>
+      </md-sidenav>
+
+      <md-content flex id="content">
+        <div ng-include="layoutObj.currentTpl"></div>
+      </md-content>
+    </div>
+  </div>
+</div>

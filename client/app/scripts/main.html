@@ -1,0 +1,33 @@
+<div>
+  <div class="content-header clearfix">
+    <span class="header-title">
+      {{headerObj.title}}
+    </span>
+
+    <div class="pull-right header-toolbar" ng-show="headerObj.headerShow()">
+      <button class="btn btn-default"
+              ng-disabled="headerObj.buttonDisabled.create()"
+              ng-click="headerObj.buttonAction.create($event)">
+        <i class="fa fa-plus"></i>
+      </button>
+      <button class="btn btn-default"
+              ng-disabled="headerObj.buttonDisabled.edit()"
+              ng-click="headerObj.buttonAction.edit($event)">
+        <i class="fa fa-edit"></i>
+      </button>
+      <button class="btn btn-default"
+              ng-disabled="headerObj.buttonDisabled.delete()"
+              ng-click="headerObj.buttonAction.delete($event)">
+        <i class="fa fa-trash"></i>
+      </button>
+      <button class="btn btn-default"
+              ng-disabled="headerObj.buttonDisabled.refresh()"
+              ng-click="headerObj.buttonAction.refresh($event)">
+        <i class="fa fa-refresh"></i>
+      </button>
+    </div>
+  </div>
+
+  <div alert="alertObj"></div>
+  <div ng-include="currentContentTpl"></div>
+</div>

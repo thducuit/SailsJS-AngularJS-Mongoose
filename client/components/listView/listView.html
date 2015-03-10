@@ -1,0 +1,57 @@
+<div class="panel panel-default listView">
+  <div class="panel-heading" ng-include="config.headerTemplate"></div>
+
+  <div class="panel-body padding-0" spinner="showSpinner">
+    <md-content>
+      <md-list>
+        <md-item ng-repeat="item in viewData">
+          <md-item-content>
+            <div ng-include="config.itemTemplate"
+                 class="md-tile-content"
+                 ng-class="{'selected': item.checked}"
+                 ng-click="selectItem(item)">
+            </div>
+          </md-item-content>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-item>
+      </md-list>
+    </md-content>
+  </div>
+
+  <div class="panel-footer clearfix">
+    <div class="pagination margin-0">
+      Total: {{config.totalPage}} pages
+    </div>
+    <div class="pull-right">
+      <ul class="pagination margin-0">
+        <li>
+          <a aria-label="Previous" class="btn fa fa-angle-double-left"
+             ng-disabled="!canPrevPage()"
+             ng-click="setFirstPage()">
+          </a>
+        </li>
+        <li>
+          <a class="btn fa fa-angle-left"
+             ng-disabled="!canPrevPage()"
+             ng-click="setPrevPage()">
+          </a>
+        </li>
+        <li>
+          <a>{{config.currentPage}}</a>
+        </li>
+        <li>
+          <a class="btn fa fa-angle-right"
+             ng-disabled="!canNextPage()"
+             ng-click="setNextPage()">
+          </a>
+        </li>
+        <li>
+          <a aria-label="Next" class="btn fa fa-angle-double-right"
+             ng-disabled="!canNextPage()"
+             ng-click="setLastPage()">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

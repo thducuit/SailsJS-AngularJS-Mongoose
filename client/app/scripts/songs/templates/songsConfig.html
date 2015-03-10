@@ -1,0 +1,41 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <label>{{songsObj.configObj.title}}</label>
+  </div>
+  <div class="panel-body">
+    <div class="form-horizontal">
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-3">
+          <md-input-container>
+            <label>First Name</label>
+            <input ng-disabled="songsObj.configObj.disabledAttrs.title"
+                   ng-model="songsObj.configObj.data.title" placeholder="First Name">
+          </md-input-container>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-3">
+          <md-input-container>
+            <label>Description</label>
+            <input ng-disabled="songsObj.configObj.disabledAttrs.description"
+                   ng-model="songsObj.configObj.data.description" placeholder="Description">
+          </md-input-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer clearfix">
+    <div class="pull-right">
+      <md-button class="md-raised md-primary"
+                 ng-click="songsObj.configObj.performFinish()"
+                 ng-disabled="!songsObj.configObj.canFinish()">
+        {{songsObj.configObj.finishLabel}}
+      </md-button>
+      <md-button class="md-raised"
+                 ng-click="songsObj.configObj.performCancel()"
+                 ng-disabled="!songsObj.configObj.canCancel()">
+        {{songsObj.configObj.cancelLabel}}
+      </md-button>
+    </div>
+  </div>
+</div>
